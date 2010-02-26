@@ -1,0 +1,6 @@
+adapter: postgresql
+host: localhost
+database: unittest_dojo_on_rails
+username: postgres
+password: postgres
+encoding: utf8
