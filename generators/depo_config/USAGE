@@ -1,0 +1,5 @@
+Description:
+  Generate depo config
+
+Modules Example:
+    `./script/generate depo_config 

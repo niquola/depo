@@ -1,0 +1,2 @@
+Depo.configure do
+end

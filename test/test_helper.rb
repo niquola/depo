@@ -3,7 +3,7 @@ def path(path)
 end
 
 $:.unshift(path('../lib'))
-require 'dojo_on_rails'
+require 'depo'
 require 'rubygems'
 require 'active_support'
 require 'active_support/test_case'
@@ -24,6 +24,12 @@ class GeneratorTest < ActiveSupport::TestCase
 
   def read(path)
     IO.readlines("#{fake_rails_root}/#{path}",'').to_s
+  end
+
+  def assert_file(file)
+    assert_block "File #{file} not exists, as not expected" do
+      File.exists? "#{fake_rails_root}/#{file}"
+    end
   end
 
   def setup
