@@ -1,38 +1,37 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-Depo.configure do
+Depo.configure {
   root 'public'
-  author 'niquola@gmail.com'
+  author 'niquola@gmail.com' 
   themes ['tundra','verdugo']
 
-  environments do
+  environments {
     developmentDjConfig 'parseOnLoad:true;isDebug:true;'
     productionDjConfig 'parseOnLoad:true;isDebug:false;'
-  end
+  }
 
-  build_options do
+  build_options {
     cssOptimize 'comments.keepLines'
     optimize 'shrinksafe.keepLines'
     cssImportIgnore '../dijit.css'
     internStrings 'true'
-  end
+  }
 
-  build_profile do
+  build_profile {
     libs<< 'mylib'
 
     pages<< 'app.pages.admin'
     pages<< 'app.pages.chart'
     pages<< 'app.pages.nurse'
     pages<< 'app.pages.dashboard'
-  end
+  }
 
-  generators do
+  generators {
     head_of_test_page <<-HTML
     <link rel="stylesheet" href="#{Depo.config.src_path}/common.css" type="text/css" />
     HTML
-  end
-
-end
+  }
+}
 
 class DepoConfigureTest < GeneratorTest
   def test_roots
@@ -46,5 +45,6 @@ class DepoConfigureTest < GeneratorTest
     assert_equal(['tundra','verdugo'],config.themes)
     assert_equal('parseOnLoad:true;isDebug:true;',config.environments.developmentDjConfig)
     assert(config.build_profile.pages.include?('app.pages.admin'))
+    assert(config.build_profile.libs.include?('mylib'))
   end
 end
