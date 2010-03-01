@@ -10,5 +10,9 @@ module Depo
       @config = Config.new
       @config.instance_eval &block
     end
+
+    def load_config(path)
+      load path
+    end
   end
 end

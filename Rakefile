@@ -35,6 +35,7 @@ spec = Gem::Specification.new do |s|
   #s.homepage = ""
   s.platform = Gem::Platform::RUBY
   s.summary = "Rails & dojo integration"
+  s.add_dependency('dojo_src', '>= 1.4.0')
   s.files = PKG_FILES.to_a 
   s.require_path = "lib"
   s.has_rdoc = false

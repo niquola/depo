@@ -2,3 +2,4 @@
 *.swp
 *.swo
 test/rails_root/*
+pkg/*
