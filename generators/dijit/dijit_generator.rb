@@ -1,17 +1,13 @@
 class DijitGenerator < Rails::Generator::Base
-  include Depo::PathUtils
+  attr :dijit
+
   def extract_opts!(args)
     @dijit_full_name = args.shift
+    @dijit=Depo::DijitConventions.new(@dijit_full_name)
   end
 
   def assigns
-   @assigns ||= {:assigns=>{
-      :dijit_full_name => @dijit_full_name,
-      :dijit_class_name => dijit_class_name(@dijit_full_name),
-      :dijit_package_name => dijit_package_name(@dijit_full_name),
-      :dijit_base_class => @dijit_base_class || 'null',
-      :dijit_style_class_name => dijit_style_class_name(@dijit_full_name)
-    }.merge(Depo.config.to_hash)}
+   @assigns ||= {:assigns=>dijit.to_hash.merge(:config=>Depo.config)}
   end
 
   def test?
@@ -25,14 +21,14 @@ class DijitGenerator < Rails::Generator::Base
   def manifest
     record do |m|
       extract_opts!(args)
-      m.directory package_path(@dijit_full_name)
-      m.directory style_dir_path(@dijit_full_name)
-      m.directory test_dir_path(@dijit_full_name)
+      m.directory dijit.package_path
+      m.directory dijit.style_dir_path
+      m.directory dijit.test_dir_path
 
-      m.template "class.js", class_path(@dijit_full_name), assigns
-      #m.template "style.css", style_path(@dijit_full_name),assigns if style?
-      #m.template "test.js", test_code_path(@dijit_full_name),assigns if test?
-      #m.template "test.htm", test_page_path(@dijit_full_name),assigns if test?
+      m.template "class.js", dijit.class_path, assigns
+      m.template "test.js", dijit.test_code_path,assigns if test?
+      m.template "test.html", dijit.test_page_path,assigns if test?
+      m.template "style.css", dijit.style_path,assigns if style?
     end
   end
 end

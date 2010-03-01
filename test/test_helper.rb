@@ -12,10 +12,10 @@ require "active_record"
 require 'rails_generator/scripts/generate'
 
 
-GEM_ROOT= path('..')
+gem_root= path('..')
 Rails::Generator::Base.default_options :collision => :ask, :quiet => false
 Rails::Generator::Base.reset_sources
-Rails::Generator::Base.append_sources(Rails::Generator::PathSource.new(:plugin, "#{GEM_ROOT}/generators/"))
+Rails::Generator::Base.append_sources(Rails::Generator::PathSource.new(:plugin, "#{gem_root}/generators/"))
 
 class GeneratorTest < ActiveSupport::TestCase
   def generate(*args)

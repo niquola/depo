@@ -1,6 +1,6 @@
 /**
  * <%= dijit_full_name %>
- * Created by <%= author %> 
+ * Created by <%= config.author %> 
  **/
 dojo.provide("<%= dijit_full_name %>");
 <% if dijit_base_class != 'null' %> 

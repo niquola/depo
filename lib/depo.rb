@@ -3,7 +3,7 @@ $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname
 module Depo
   VERSION = '0.0.1'
   autoload :Config, 'depo/config'
-  autoload :PathUtils, 'depo/path_utils'
+  autoload :DijitConventions, 'depo/dijit_conventions'
   class << self
     attr :config
     def configure(&block)
