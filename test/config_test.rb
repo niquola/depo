@@ -40,11 +40,12 @@ class DepoConfigureTest < GeneratorTest
     assert_equal('public/src', config.src_path)
     assert_equal('public/builds', config.builds_path)
     assert_equal('niquola@gmail.com', config.author)
-    assert_match(/common.css/, config.generators.head_of_test_page )
 
     assert_equal(['tundra','verdugo'],config.themes)
     assert_equal('parseOnLoad:true;isDebug:true;',config.environments.developmentDjConfig)
     assert(config.build_profile.pages.include?('app.pages.admin'))
     assert(config.build_profile.libs.include?('mylib'))
+
+    assert_match(/common.css/, config.generators.head_of_test_page )
   end
 end

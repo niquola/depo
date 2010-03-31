@@ -1,18 +1,10 @@
 $:.unshift(File.dirname(__FILE__)) unless
 $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
+require 'kung_figure'
 module Depo
   VERSION = '0.0.1'
   autoload :Config, 'depo/config'
+  autoload :Build, 'depo/build'
   autoload :DijitConventions, 'depo/dijit_conventions'
-  class << self
-    attr :config
-    def configure(&block)
-      @config = Config.new
-      @config.instance_eval &block
-    end
-
-    def load_config(path)
-      load path
-    end
-  end
+  include KungFigure
 end

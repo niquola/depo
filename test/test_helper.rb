@@ -3,8 +3,8 @@ def path(path)
 end
 
 $:.unshift(path('../lib'))
-require 'depo'
 require 'rubygems'
+require 'depo'
 require 'active_support'
 require 'active_support/test_case'
 require "rails_generator"
@@ -16,6 +16,8 @@ gem_root= path('..')
 Rails::Generator::Base.default_options :collision => :ask, :quiet => false
 Rails::Generator::Base.reset_sources
 Rails::Generator::Base.append_sources(Rails::Generator::PathSource.new(:plugin, "#{gem_root}/generators/"))
+
+RAILS_ROOT = path('rails_root')
 
 class GeneratorTest < ActiveSupport::TestCase
   def generate(*args)
@@ -39,7 +41,7 @@ class GeneratorTest < ActiveSupport::TestCase
 
   protected
   def fake_rails_root
-    path('rails_root')
+    RAILS_ROOT 
   end
 end
 
