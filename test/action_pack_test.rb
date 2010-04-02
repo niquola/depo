@@ -28,22 +28,22 @@ end
 class ActionPackTest < GeneratorTest
   def test_dojo_helper_development
     assert_equal ActionView.new.dojo(:app => 'app', :env => 'development'), ActionViewEnv.new.get_template({
-      :webroot => "ria/src",
-      :app_js => "ria/src/app/pages/app.js",
+      :webroot => "/ria/src",
+      :app_js => "/ria/src/app/pages/app.js",
       :djConfig => "parseOnLoad:true,isDebug:true",
-      :css => "ria/src/app/themes/tundra/app.css"
+      :css => "/ria/src/app/themes/tundra/app.css"
     })
   end
 
   def test_dojo_helper_production
-    build_path = File.join(Depo.config.builds_path, 'builddir')
-    Dir::mkdir(Depo.config.builds_path) if !File.directory? Depo.config.builds_path
-    Dir::mkdir(build_path) if !File.directory? build_path
+    Depo.config.root File.join(fake_rails_root , '/public/ria')
+    Depo.config.webroot File.join(fake_rails_root , '/public')
+    create_if_missing(File.join(Depo.config.builds_path, 'builddir'))
     assert_equal ActionView.new.dojo(:app => 'app', :env => 'production'), ActionViewEnv.new.get_template({
-      :webroot => "ria/builds/builddir",
-      :app_js => "ria/builds/builddir/app/pages/app.js",
+      :webroot => "/ria/builds/builddir",
+      :app_js => "/ria/builds/builddir/app/pages/app.js",
       :djConfig => "parseOnLoad:true,isDebug:false",
-      :css => "ria/builds/builddir/app/themes/tundra/app.css"
+      :css => "/ria/builds/builddir/app/themes/tundra/app.css"
     })
   end
 end

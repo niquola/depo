@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 Depo.configure do
   root 'public'
+  default_theme 'basic'
 end
 
 class DijitConventionsTest < GeneratorTest

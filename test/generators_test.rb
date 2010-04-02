@@ -41,7 +41,7 @@ class ViewsGeneratorTest < GeneratorTest
     result = read file
     assert_match(/common.css/, result)
 
-    file = from_src("app/themes/basic/my/Dijit.css")
+    file = from_src("app/themes/tundra/my/Dijit.css")
     assert_file file
     result = read file
     assert_match(/.AppMyDijit/, result)

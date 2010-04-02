@@ -1,5 +1,6 @@
-def path(path)
-  File.join(File.dirname(__FILE__),path)
+C_DIR = File.dirname(__FILE__)
+def path(p)
+  File.join(C_DIR,p)
 end
 
 $:.unshift(path('../lib'))
@@ -11,6 +12,7 @@ require 'active_support/test_case'
 require "rails_generator"
 require "active_record"
 require 'rails_generator/scripts/generate'
+require 'ftools'
 
 
 gem_root= path('..')
@@ -35,6 +37,12 @@ class GeneratorTest < ActiveSupport::TestCase
     end
   end
 
+  def create_if_missing *names
+    names.each do |name|
+      File.makedirs(name) unless File.directory?(name)
+    end
+  end
+
   def setup
     FileUtils.rm_r(fake_rails_root)
     FileUtils.mkdir_p(fake_rails_root)
@@ -42,7 +50,7 @@ class GeneratorTest < ActiveSupport::TestCase
 
   protected
   def fake_rails_root
-    RAILS_ROOT 
+   RAILS_ROOT
   end
 end
 

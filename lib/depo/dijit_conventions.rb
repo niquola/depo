@@ -64,7 +64,7 @@ module Depo
     end
 
     prop :style_dir_path do
-      from_src cmp.base_module,'themes', cmp.modules
+      from_src cmp.base_module,'themes', Depo.config.default_theme, cmp.modules
     end
 
     prop :test_dir_path do

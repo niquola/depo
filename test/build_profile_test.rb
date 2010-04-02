@@ -27,7 +27,6 @@ class BuildProfileTest < GeneratorTest
     Depo::Build.generate_profile(:rails_root=>fake_rails_root)
     assert_file 'tmp/dojo_build_profile.js'
     result = read('tmp/dojo_build_profile.js')
-    puts result
     assert_match(/test\/rails_root\/public\/src\/mylib/, result)
   end
 end
