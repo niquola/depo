@@ -37,6 +37,7 @@ class DepoConfigureTest < GeneratorTest
   def test_roots
     config=Depo.config
     assert_equal('public', config.root)
+    assert_equal('', config.root_webpath)
     assert_equal('public/src', config.src_path)
     assert_equal('public/builds', config.builds_path)
     assert_equal('niquola@gmail.com', config.author)

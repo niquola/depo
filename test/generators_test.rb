@@ -48,5 +48,11 @@ class ViewsGeneratorTest < GeneratorTest
   end
 
   def test_page_generator
+    generate 'dpage','controller_name', 'pagename'
+    assert_file 'app/controllers/controller_name_controller.rb'
+    assert_file 'app/views/controller_name/pagename.haml'
+    assert_file 'app/helpers/controller_name_helper.rb'
+    assert_file 'test/unit/helpers/controller_name_helper_test.rb'
+    assert_file = from_src("app/pages/pagename.js")
   end
 end

@@ -28,7 +28,7 @@ end
 PKG_FILES = FileList[ '[a-zA-Z]*', 'generators/**/*', 'lib/**/*', 'rails/**/*', 'tasks/**/*', 'test/**/*' ]
 
 spec = Gem::Specification.new do |s|
-  s.name = "dojo_on_rails"
+  s.name = "depo"
   s.version = "0.0.1"
   s.author = "niquola"
   s.email = "niquola@gmail.com"

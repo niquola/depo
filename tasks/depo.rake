@@ -17,7 +17,7 @@ namespace :dojo do
   task :build=>:build_profile do
     profile_file = File.join(RAILS_ROOT,Depo.config.profile_path)
     Dir.chdir File.join(RAILS_ROOT,Depo.config.buildscripts_path)
-    release_dir=File.join(RAILS_ROOT,Depo.config.release_dir)
+    release_dir=File.join(RAILS_ROOT,Depo.config.builds_path)
     FileUtils.mkdir_p(release_dir) unless File.exists? release_dir
 
     options=Depo.config.build_options.get_options.map{ |key, val| "#{key}=#{val}"}.join ' '
