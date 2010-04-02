@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 Depo.configure {
-  root 'public'
   author 'niquola@gmail.com'
   themes ['tundra','verdugo']
 
@@ -27,6 +26,7 @@ class BuildProfileTest < GeneratorTest
     Depo::Build.generate_profile(:rails_root=>fake_rails_root)
     assert_file 'tmp/dojo_build_profile.js'
     result = read('tmp/dojo_build_profile.js')
-    assert_match(/test\/rails_root\/public\/src\/mylib/, result)
+    assert_match(/test\/rails_root\/public\/ria\/src\/mylib/, result)
+    Depo.clear_config!
   end
 end

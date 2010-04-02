@@ -1,16 +1,7 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
-Depo.configure do
-  root 'public'
-  author 'niquola@gmail.com'
-  generators do
-    head_of_test_page <<-HTML
-    <link rel="stylesheet" href="#{Depo.config.src_path}/common.css" type="text/css" />
-    HTML
-  end
-end
 
 
-class ViewsGeneratorTest < GeneratorTest
+class GeneratorsTest < GeneratorTest
   def test_config_generator
     generate 'depo_config'
     assert_file 'config/depo.rb'
@@ -23,6 +14,15 @@ class ViewsGeneratorTest < GeneratorTest
   end
 
   def test_widget_generator
+    Depo.clear_config!
+    Depo.configure do
+      author 'niquola@gmail.com'
+      generators do
+        head_of_test_page <<-HTML
+        <link rel="stylesheet" href="#{Depo.config.src_path}/common.css" type="text/css" />
+        HTML
+      end
+    end
     generate 'dijit','app.my.Dijit'
 
     file = from_src("app/my/Dijit.js")
@@ -45,6 +45,7 @@ class ViewsGeneratorTest < GeneratorTest
     assert_file file
     result = read file
     assert_match(/.AppMyDijit/, result)
+    Depo.clear_config!
   end
 
   def test_page_generator

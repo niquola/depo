@@ -33,11 +33,10 @@ class ActionPackTest < GeneratorTest
       :djConfig => "parseOnLoad:true,isDebug:true",
       :css => "/ria/src/app/themes/tundra/app.css"
     })
+    Depo.clear_config!
   end
 
   def test_dojo_helper_production
-    Depo.config.root File.join(fake_rails_root , '/public/ria')
-    Depo.config.webroot File.join(fake_rails_root , '/public')
     create_if_missing(File.join(Depo.config.builds_path, 'builddir'))
     assert_equal ActionView.new.dojo(:app => 'app', :env => 'production'), ActionViewEnv.new.get_template({
       :webroot => "/ria/builds/builddir",
@@ -45,5 +44,6 @@ class ActionPackTest < GeneratorTest
       :djConfig => "parseOnLoad:true,isDebug:false",
       :css => "/ria/builds/builddir/app/themes/tundra/app.css"
     })
+    Depo.clear_config!
   end
 end
