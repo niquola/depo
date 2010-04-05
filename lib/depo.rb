@@ -11,11 +11,17 @@ module Depo
   autoload :ViewHelpers, 'depo/view_helpers'
   include KungFigure
   class << self
+    def dojofy
+      Dir.chdir(RAILS_ROOT)
+      version = Depo.config.dojo_version
+      system "dojofy #{Depo.config.src_path} #{version}"
+    end
     def enable
       return if ActionView::Base.instance_methods.include? 'dojo'
       if defined?(ActionController::Base) 
         ActionView::Base.send :include, ViewHelpers
       end
+      dojofy if Depo.config.enable_dojofy 
     end
   end
 end

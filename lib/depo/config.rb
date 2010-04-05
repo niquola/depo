@@ -8,6 +8,7 @@ module Depo
     define_prop :profile_path,'tmp/dojo_build_profile.js'
     define_prop :default_page_lib,'app.pages'
     define_prop :dojo_version,'1.4.2'
+    define_prop :enable_dojofy, true
 
     def src_path
       "#{root}/src"

@@ -4,9 +4,7 @@ require 'depo'
 namespace :dojo do
   desc "Install dojo"
   task :install=>:environment do
-    Dir.chdir(RAILS_ROOT)
-    version = Depo.config.dojo_version
-    system "dojofy #{Depo.config.src_path} #{version}"
+    Depo.dojofy
   end
 
   desc "Generate build profile"
