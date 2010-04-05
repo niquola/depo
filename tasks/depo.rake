@@ -6,7 +6,7 @@ namespace :dojo do
   task :install=>:environment do
     Dir.chdir(RAILS_ROOT)
     version = Depo.config.dojo_version
-    system "dojofy #{Depo.config.src_path} #{dojo_version}"
+    system "dojofy #{Depo.config.src_path} #{version}"
   end
 
   desc "Generate build profile"
