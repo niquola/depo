@@ -6,6 +6,7 @@ class DepoConfigureTest < GeneratorTest
     Depo.configure {
       author 'niquola@gmail.com'
       themes ['tundra','verdugo']
+      dojo_version '1.4.2'
 
       environments {
         developmentDjConfig 'parseOnLoad:true;isDebug:true;'
@@ -36,6 +37,7 @@ class DepoConfigureTest < GeneratorTest
     }
 
     config=Depo.config
+    assert_equal('1.4.2', config.dojo_version)
     assert_equal('public/ria', config.root)
     assert_equal('/ria', config.root_webpath)
     assert_equal('public/ria/src', config.src_path)

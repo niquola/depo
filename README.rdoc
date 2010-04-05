@@ -1,27 +1,26 @@
-= DojoOnRails
+= Depo (Dojo On Rails)
 
-* http://github.com/niquola/dojo_on_rails
+Is attempt to automate many task and practices in building RIA using Dojo and Rails.
 
-== DESCRIPTION:
+== Installation
 
-Dojo and rails integration
-
-== INSTALL:
-
-in config/environment.rb:
-
- config.gem 'droji'
-
-and then 
-
- sudo rake gems:install
-
-== USAGE
+1. sudo gem install depo  
+   or in config/environment.rb:
+      ...
+      config.gem 'depo'
+      ...
+   >> sudo rake gems:install
+1. rake dojo:install
 
 
-== CHANGE LIST:
+== FEATURES ABSTRACT:
 
-* 0.0.2 Add configurable rules for extactions
+* Some conventions and practices about Dojo-Rails project structure and management
+* Automate dojo installation and update 
+* Automate builds
+* Generators for custom widgets (DijitGenerator) and one page applications 
+* ActionView Helper
+
 
 == LICENSE:
 

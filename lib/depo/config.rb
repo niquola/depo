@@ -7,6 +7,7 @@ module Depo
     define_prop :default_theme,'tundra'
     define_prop :profile_path,'tmp/dojo_build_profile.js'
     define_prop :default_page_lib,'app.pages'
+    define_prop :dojo_version,'1.4.2'
 
     def src_path
       "#{root}/src"
