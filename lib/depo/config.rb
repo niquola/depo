@@ -2,12 +2,13 @@ module Depo
   class Config < KungFigure::Base
     define_prop :root,'public/ria'
     define_prop :webroot,'public'
+    define_prop :base_webpath,''
     define_prop :author,'NotConfigured'
     define_prop :themes,['tundra']
     define_prop :default_theme,'tundra'
     define_prop :profile_path,'tmp/dojo_build_profile.js'
     define_prop :default_page_lib,'app.pages'
-    define_prop :dojo_version,'1.4.2'
+    define_prop :dojo_version,'1.4.102'
     define_prop :enable_dojofy, true
 
     def src_path
@@ -19,15 +20,15 @@ module Depo
     end
 
     def root_webpath
-      root.gsub(webroot, "")
+      "#{base_webpath}#{root.gsub(webroot, "")}"
     end
 
     def src_webpath
-      src_path.gsub(webroot, "")
+      "#{base_webpath}#{src_path.gsub(webroot, "")}"
     end
 
     def last_build_webpath
-      (Dir[File.join(builds_path,'*')].max).to_s.gsub(webroot, "")
+     "#{base_webpath}#{(Dir[File.join(builds_path,'*')].max).to_s.gsub(webroot, "")}"
     end
 
     def env_dj_config(env)

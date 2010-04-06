@@ -1,6 +1,6 @@
 = Depo (Dojo On Rails)
 
-Is attempt to automate many task and practices in building RIA using Dojo and Rails.
+Is attempt to automate many tasks and practices in building RIA using Dojo and Rails.
 
 == Installation
 
@@ -20,6 +20,29 @@ Is attempt to automate many task and practices in building RIA using Dojo and Ra
 * Automate builds
 * Generators for custom widgets (DijitGenerator) and one page applications 
 * ActionView Helper
+
+== SAMPLE CONFIGURATION:
+  Depo.configure {
+    author 'niquola'
+    themes ['basic']
+    default_theme 'basic'
+    dojo_version '1.4.1'
+    base_webpath '/myapplication'
+
+    build_options {
+      cssOptimize 'comments.keepLines'
+      optimize 'shrinksafe.keepLines'
+      cssImportIgnore '../dijit.css'
+      internStrings 'true'
+    }
+
+    build_profile {
+      libs<< 'app'
+
+      pages<< "app.pages.dashboard"
+      pages<< "app.pages.admin"
+    }
+  }
 
 
 == LICENSE:
