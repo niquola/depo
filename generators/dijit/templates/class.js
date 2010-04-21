@@ -13,7 +13,7 @@ dojo.require("<%= dijit_base_class %>");
 		//  HERE WIDGET SUMMARY 
     
 		// baseClass: [protected] String
-		baseClass: "<%= dijit_style_class_name %>",
+		baseClass: "<%= dijit_style_class_name %>"
     //templateString: dojo.cache("<%= dijit_package_name %>", "templates/<%= dijit_class_name %>.html"),
     //widgetsInTemplate: true,
 		//buildRendering: function () {
@@ -27,4 +27,4 @@ dojo.require("<%= dijit_base_class %>");
 			//this.inherited(arguments);
 		//}
   });
-});
+})();
