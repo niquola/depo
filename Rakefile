@@ -27,9 +27,10 @@ end
 
 PKG_FILES = FileList[ '[a-zA-Z]*', 'generators/**/*', 'lib/**/*', 'rails/**/*', 'tasks/**/*', 'test/**/*' ]
 
+require 'lib/depo.rb'
 spec = Gem::Specification.new do |s|
   s.name = "depo"
-  s.version = "0.0.2"
+  s.version = Depo::VERSION
   s.author = "niquola, smecsia"
   s.email = "niquola@gmail.com"
   #s.homepage = ""

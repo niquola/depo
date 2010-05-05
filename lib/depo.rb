@@ -4,7 +4,7 @@ require 'kung_figure'
 require 'active_support'
 
 module Depo
-  VERSION = '0.0.1'
+  VERSION = '0.0.4'
   autoload :Config, 'depo/config'
   autoload :Build, 'depo/build'
   autoload :DijitConventions, 'depo/dijit_conventions'
