@@ -20,7 +20,7 @@ class ActionViewEnv
   end
   def get_template(v)
     @av_values = v
-    tpl_string = IO.readlines(File.dirname(__FILE__) + '/../lib/depo/templates/dojo_src.tpl').to_s
+    tpl_string = File.read(File.dirname(__FILE__) + '/../lib/depo/templates/dojo_src.tpl')
     tpl = ERB.new(tpl_string).result(binding)
   end
 end

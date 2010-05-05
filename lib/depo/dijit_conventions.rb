@@ -22,7 +22,7 @@ module Depo
       if parts.length > 2
         cmps[:modules] = parts[1..-2]
       end
-      cmps[:dijit_full_name]=dijit_full_name 
+      cmps[:dijit_full_name]=dijit_full_name
       @cmp_hash=cmps
       @cmp = OpenStruct.new(cmps)
     end
@@ -58,7 +58,7 @@ module Depo
     def j(*args)
       File.join(*args)
     end
-   
+
     prop :package_path do
       from_src cmp.base_module, cmp.modules
     end
@@ -85,6 +85,14 @@ module Depo
 
     prop :test_page_path do
       j(test_dir_path,"#{cmp.class_name}.html")
+    end
+
+    prop :template_dir_path do
+      j(package_path,'templates')
+    end
+
+    prop :template_path do
+      j(template_dir_path, "#{cmp.class_name}.html")
     end
 
     prop :dijit_style_class_name do

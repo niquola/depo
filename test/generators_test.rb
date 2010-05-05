@@ -31,6 +31,11 @@ class GeneratorsTest < GeneratorTest
     assert_match(/dojo.provide/, result)
     assert_match(/dojo.declare/, result)
 
+    file = from_src("app/my/templates/Dijit.html")
+    assert_file file
+    result = read file
+    assert_match(/\$\{baseClass\}/, result)
+
     file = from_src("app/tests/my/Dijit.js")
     assert_file file
     result = read file

@@ -24,8 +24,10 @@ class DijitGenerator < Rails::Generator::Base
       m.directory dijit.package_path
       m.directory dijit.style_dir_path
       m.directory dijit.test_dir_path
+      m.directory dijit.template_dir_path
 
       m.template "class.js", dijit.class_path, assigns
+      m.template "template.html", dijit.template_path, assigns
       m.template "test.js", dijit.test_code_path,assigns if test?
       m.template "test.html", dijit.test_page_path,assigns if test?
       m.template "style.css", dijit.style_path,assigns if style?

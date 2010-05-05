@@ -24,7 +24,7 @@ module Depo
 
       def profile_template
         return @template if @template
-        tpl_string = IO.readlines("#{File.dirname(__FILE__)}/templates/profile.js",'').to_s
+        tpl_string = File.read("#{File.dirname(__FILE__)}/templates/profile.js")
         @template = ERB.new(tpl_string)
       end
 
