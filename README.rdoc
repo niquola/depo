@@ -7,6 +7,7 @@ Is attempt to automate many tasks and practices in building RIA using Dojo and R
 1. sudo gem install depo  
    or in config/environment.rb:
       ...
+      config.gem 'dojo_src',:version=>'[DOJO_GEM_VERSION]'
       config.gem 'depo'
       ...
    >> sudo rake gems:install
@@ -26,7 +27,6 @@ Is attempt to automate many tasks and practices in building RIA using Dojo and R
     author 'niquola'
     themes ['basic']
     default_theme 'basic'
-    dojo_version '1.4.1'
     base_webpath '/myapplication'
 
     build_options {
@@ -44,6 +44,10 @@ Is attempt to automate many tasks and practices in building RIA using Dojo and R
     }
   }
 
+
+== CHANGE LOG:
+
+* 0.0.5 remove dependency from dojo_src, to extenrnalize control over it
 
 == LICENSE:
 

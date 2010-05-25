@@ -15,7 +15,7 @@ dojo.require("<%= dijit_base_class %>");
 		// baseClass: [protected] String
 		baseClass: "<%= dijit_style_class_name %>"
     //templateString: dojo.cache("<%= dijit_package_name %>", "templates/<%= dijit_class_name %>.html"),
-    //widgetsInTemplate: true,
+    widgetsInTemplate: true,
 		//buildRendering: function () {
 			//this.inherited(arguments);
 		//},

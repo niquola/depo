@@ -4,7 +4,7 @@ require 'kung_figure'
 require 'active_support'
 
 module Depo
-  VERSION = '0.0.4'
+  VERSION = '0.0.5'
   autoload :Config, 'depo/config'
   autoload :Build, 'depo/build'
   autoload :DijitConventions, 'depo/dijit_conventions'
@@ -18,7 +18,9 @@ module Depo
     end
     def dojofy
       Dir.chdir(RAILS_ROOT) do 
-        version = Depo.config.dojo_version
+        require 'dojo_src'
+        version = DojoSrc::VERSION
+        #version = Depo.config.dojo_version
         system "dojofy _#{version}_ #{Depo.config.src_path}"
       end
     end

@@ -8,8 +8,11 @@ module Depo
     define_prop :default_theme,'tundra'
     define_prop :profile_path,'tmp/dojo_build_profile.js'
     define_prop :default_page_lib,'app.pages'
-    define_prop :dojo_version,'1.4.102'
     define_prop :enable_dojofy, true
+
+    def dojo_version(*args)
+      raise "dojo_version depricated."
+    end
 
     def src_path
       "#{root}/src"
