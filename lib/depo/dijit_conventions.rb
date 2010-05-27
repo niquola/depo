@@ -52,7 +52,7 @@ module Depo
     end
 
     def from_src(*args)
-      File.join(*args.flatten.unshift(Depo.config.src_path))
+      File.join(*args.flatten.unshift(Depo.config.src_path).delete_if { |x| x.nil? || x.empty? })
     end
 
     def j(*args)

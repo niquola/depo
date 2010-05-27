@@ -15,4 +15,9 @@ class DijitConventionsTest < GeneratorTest
 
     assert_not_nil(dijit.to_hash)
   end
+
+  def test_conventions
+    dijit=Depo::DijitConventions.new('app.Dijit')
+    assert_equal('public/ria/src/app', dijit.package_path)
+  end
 end
