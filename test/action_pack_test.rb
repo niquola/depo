@@ -27,11 +27,12 @@ end
 
 class ActionPackTest < GeneratorTest
   def test_dojo_helper_development
+    Depo.config.app_package 'medhub'
     assert_equal ActionView.new.dojo(:app => 'app', :env => 'development'), ActionViewEnv.new.get_template({
       :webroot => "/ria/src",
-      :app_js => "/ria/src/app/pages/app.js",
+      :app_js => "/ria/src/medhub/pages/app.js",
       :djConfig => "parseOnLoad:true,isDebug:true",
-      :css => "/ria/src/app/themes/tundra/app.css"
+      :css => "/ria/src/medhub/themes/tundra/app.css"
     })
     Depo.clear_config!
   end

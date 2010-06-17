@@ -7,6 +7,8 @@ class DepoConfigureTest < GeneratorTest
       author 'niquola@gmail.com'
       themes ['tundra','verdugo']
 
+      app_package 'medhub'
+
       environments {
         developmentDjConfig 'parseOnLoad:true;isDebug:true;'
         productionDjConfig 'parseOnLoad:true;isDebug:false;'
@@ -41,6 +43,7 @@ class DepoConfigureTest < GeneratorTest
     assert_equal('public/ria/src', config.src_path)
     assert_equal('public/ria/builds', config.builds_path)
     assert_equal('niquola@gmail.com', config.author)
+    assert_equal('medhub', config.app_package)
 
     assert_equal(['tundra','verdugo'],config.themes)
     assert_equal('parseOnLoad:true;isDebug:true;',config.environments.developmentDjConfig)

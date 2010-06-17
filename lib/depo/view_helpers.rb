@@ -10,13 +10,17 @@ module Depo
       Depo.config.env_dj_config(@opts[:env])
     end
 
+    def app_package
+      @app_package||=Depo.config.app_package
+    end
+
     #check if ext presented and add if not
     def add_ext(str,ext)
       ( str.strip=~/\.#{ext}$/ ) ? str.strip : "#{str.strip}.#{ext}"
     end
 
     def css
-      %Q[#{webroot}/app/themes/#{theme}/#{add_ext(@opts[:app],'css')}]
+      %Q[#{webroot}/#{app_package}/themes/#{theme}/#{add_ext(@opts[:app],'css')}]
     end
 
     def dojo(opts)
@@ -33,7 +37,7 @@ module Depo
     end
 
     def app_js
-      %Q[#{webroot}/app/pages/#{@opts[:app]}.js]
+      %Q[#{webroot}/#{app_package}/pages/#{@opts[:app]}.js]
     end
 
   end

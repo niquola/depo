@@ -48,6 +48,7 @@ Is attempt to automate many tasks and practices in building RIA using Dojo and R
 == CHANGE LOG:
 
 * 0.0.5 remove dependency from dojo_src, to extenrnalize control over it
+* 0.0.7 add app_package customization (default left 'app')
 
 == LICENSE:
 
