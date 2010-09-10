@@ -49,6 +49,7 @@ Is attempt to automate many tasks and practices in building RIA using Dojo and R
 
 * 0.0.5 remove dependency from dojo_src, to extenrnalize control over it
 * 0.0.7 add app_package customization (default left 'app')
+* 0.0.8 kung_figure dependency updated
 
 == LICENSE:
 
